@@ -8,7 +8,7 @@ import {
 const initialState = {
   year: 2016,
   name: "",
-  sex: 0,
+  sex: "M",
   isFetching: false
 };
 

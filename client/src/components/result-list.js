@@ -5,19 +5,20 @@ import PersonIcon from "material-ui/svg-icons/social/person-outline";
 import Paper from "material-ui/Paper";
 import SortResults from "./sort-results";
 
-const ResultList = ({ names, sortBy, setSortOrder }) => {
+const ResultList = ({ names, year, sortBy, setSortOrder }) => {
   return (
     <div>
-      <Paper
-        style={{
-          maxWidth: "600px",
-          margin: "auto",
-          marginBottom: "10px",
-          padding: "8px 15px"
-        }}
-      >
-        <SortResults sortBy={sortBy} setSortOrder={setSortOrder} />
-      </Paper>
+      {year === 0 &&
+        <Paper
+          style={{
+            maxWidth: "600px",
+            margin: "auto",
+            marginBottom: "10px",
+            padding: "8px 15px"
+          }}
+        >
+          <SortResults sortBy={sortBy} setSortOrder={setSortOrder} />
+        </Paper>}
       <Paper style={{ maxWidth: "600px", margin: "auto" }}>
         <List style={{ maxWidth: "600px", margin: "auto" }}>
           {names.map(name =>
@@ -46,6 +47,7 @@ const ResultList = ({ names, sortBy, setSortOrder }) => {
 
 ResultList.propTypes = {
   names: PropTypes.array,
+  year: PropTypes.number,
   sortBy: PropTypes.string,
   setSortOrder: PropTypes.func
 };

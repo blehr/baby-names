@@ -9,6 +9,7 @@ import NameSelector from "../components/name-selector";
 import RaisedButton from "material-ui/RaisedButton";
 import ResultList from "../components/result-list";
 import LoadingIndictor from "../components/loading-indictor";
+import Graph from "../components/graph";
 
 const controlStyleLarge = {
   display: "flex",
@@ -104,12 +105,16 @@ class AppContainer extends Component {
             fullWidth
           />
         </div>
-        {this.props.names.length !== 0 &&
-          <ResultList
-            names={this.props.names}
-            sortBy={this.props.sortBy}
-            setSortOrder={this.setSortOrder}
-          />}
+        <div style={{minHeight: "75vh"}} >
+          {this.props.year === 0 && <Graph names={this.props.names} />}
+          {this.props.names.length !== 0 &&
+            <ResultList
+              names={this.props.names}
+              year={this.props.year}
+              sortBy={this.props.sortBy}
+              setSortOrder={this.setSortOrder}
+            />}
+        </div>
         <LoadingIndictor isFetching={this.props.isFetching} />
       </Layout>
     );
