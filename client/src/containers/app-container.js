@@ -37,6 +37,7 @@ class AppContainer extends Component {
     this.setSex = this.setSex.bind(this);
     this.setName = this.setName.bind(this);
     this.fetchNames = this.fetchNames.bind(this);
+    this.setSortOrder = this.setSortOrder.bind(this);
     this.screenSize = "";
   }
   setYear(event, index, value) {
@@ -47,6 +48,9 @@ class AppContainer extends Component {
   }
   setName(event) {
     this.props.setName(event.target.value);
+  }
+  setSortOrder(event, index, value) {
+    this.props.setSortOrder(value);
   }
   fetchNames() {
     this.props.fetchNames(
@@ -101,7 +105,11 @@ class AppContainer extends Component {
           />
         </div>
         {this.props.names.length !== 0 &&
-          <ResultList names={this.props.names} />}
+          <ResultList
+            names={this.props.names}
+            sortBy={this.props.sortBy}
+            setSortOrder={this.setSortOrder}
+          />}
         <LoadingIndictor isFetching={this.props.isFetching} />
       </Layout>
     );
@@ -120,7 +128,8 @@ const mapStateToProps = ({ query, names }) => ({
   sex: query.sex,
   name: query.name,
   isFetching: query.isFetching,
-  names: names.results
+  names: names.results,
+  sortBy: names.sortBy
 });
 
 export default connect(mapStateToProps, actions)(AppContainer);

@@ -5,7 +5,9 @@ import {
   SELECTED_SEX,
   SELECTED_NAME,
   IS_FETCHING,
-  SET_RESULTS
+  SET_RESULTS,
+  SORT_BY_OCCURRENCES,
+  SORT_BY_YEAR
 } from "./types";
 
 export const setYear = year => ({
@@ -38,6 +40,25 @@ export const setResults = data => ({
   type: SET_RESULTS,
   payload: data
 })
+
+export const sortByOccurrences = () => ({
+  type: SORT_BY_OCCURRENCES,
+})
+
+export const sortByYear = () => ({
+  type: SORT_BY_YEAR,
+})
+
+export const setSortOrder = value => {
+  return dispatch => {
+    if (value === "Occurrences") {
+      dispatch(sortByOccurrences());
+    }
+    if (value === "Year") {
+      dispatch(sortByYear());
+    }
+  }
+}
 
 export const fetchNames = (year, sex, name) => {
   return dispatch => {
