@@ -2,16 +2,17 @@ import React from 'react';
 
 const headerStyle = {
   width: "100%",
-  height: "150px",
   textAlign: "center",
-  fontFamily: 'Roboto',
+  fontFamily: 'Mountains of Christmas',
+  fontSize: "28px",
+  paddingBottom: "8px"
 }
 
 const Header = props => {
   return (
     <header style={headerStyle} >
-      <h1>Popular Baby Names</h1>
-      <h3>1880 - 2016</h3>
+      <h1 style={{margin: "0"}} >Popular Baby Names</h1><br />
+      <span>1880 - 2016</span>
     </header>
   );
 };
