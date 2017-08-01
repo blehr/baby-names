@@ -3,7 +3,6 @@ import React from 'react';
 const headerStyle = {
   width: "100%",
   textAlign: "center",
-  fontFamily: 'Mountains of Christmas',
   fontSize: "28px",
   paddingBottom: "8px"
 }
